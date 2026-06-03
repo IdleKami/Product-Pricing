@@ -1,5 +1,5 @@
-# Idle Kami Product Pricing Studio
+# Idle Kami Product Pricing Studio v9
 
-Static UK-focused product pricing calculator. Upload `index.html` to GitHub Pages.
+Static single-file product pricing app for GitHub Pages.
 
-Version 8: compact PDF, detailed breakdown on page 2, recommended sale price hero, 4px report borders, and garment-specific print rows.
+Changes in v9: compact 4px radius UI, removed redundant calculate button, black and white PDF report with clean filled boxes instead of coloured borders.
