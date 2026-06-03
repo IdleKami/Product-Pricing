@@ -1,23 +1,38 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Idle Kami Product Pricing Studio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="app.js" defer></script>
+  <style>
+    :root{
+      --blue:#1f81c4;--light-blue:#c5dded;--off-white:#f5f5f5;--light-grey:#bcbcbc;--dark-grey:#414141;--charcoal:#282828;--white:#fff;--ink:#202020;--muted:#6c747b;--line:#dce9f2;--soft:#eef7fc;--danger-bg:#f7dfdf;--danger:#803333;--shadow:0 18px 50px rgba(40,40,40,.12);--radius:22px;--radius-sm:12px
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--charcoal);background:radial-gradient(circle at 0 0,rgba(31,129,196,.18),transparent 34rem),radial-gradient(circle at 95% 12%,rgba(197,221,237,.8),transparent 28rem),linear-gradient(135deg,#fff 0%,var(--off-white) 55%,#edf7fd 100%);min-height:100vh} body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(31,129,196,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(31,129,196,.045) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;mask-image:linear-gradient(to bottom,black,transparent 75%)}
+    h1,h2,h3,p{margin-top:0} h1{font-size:clamp(2.1rem,5.6vw,4.8rem);line-height:.92;letter-spacing:-.07em;margin:.15rem 0 .9rem} h2{font-size:1.3rem;margin:0;letter-spacing:-.025em} h3{font-size:1rem;margin:1rem 0 .45rem}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--blue);font-weight:900;font-size:.72rem;margin:0 0 .35rem}.helper,.muted{color:var(--muted);font-size:.88rem;line-height:1.45}.helper{margin-bottom:1rem}.hidden{display:none!important}
+    .topbar{padding:1rem clamp(1rem,4vw,4rem) 0}.logo-strip{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#fff;border:1px solid rgba(31,129,196,.16);border-radius:24px;box-shadow:0 10px 35px rgba(40,40,40,.08);padding:.85rem 1rem}.logo-wrap{background:#fff;border-radius:18px;padding:.4rem;display:flex;align-items:center;min-width:0}.brand-logo{width:min(260px,55vw);max-height:70px;object-fit:contain;display:block}.status-pill{font-size:.82rem;font-weight:800;color:#287542;background:#e6f6ea;border:1px solid #c9ead1;border-radius:999px;padding:.55rem .8rem;white-space:nowrap}.status-pill.bad{color:#8a3a26;background:#fde8df;border-color:#f3c9b8}
+    .site-header{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:1.2rem;padding:2.2rem clamp(1rem,4vw,4rem) 1.35rem;align-items:end}.intro{max-width:850px;color:var(--dark-grey);font-size:1.06rem;line-height:1.65}.header-card{background:rgba(255,255,255,.86);border:1px solid rgba(31,129,196,.16);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.15rem}.header-card span,.header-card small{display:block;color:var(--muted)}.header-card strong{display:block;color:var(--blue);font-size:1.95rem;letter-spacing:-.04em;margin:.1rem 0}
+    .app-shell{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,.72fr);gap:1.2rem;padding:0 clamp(1rem,4vw,4rem) 4rem;align-items:start}.controls-panel{display:grid;gap:1rem}.card,.report{background:rgba(255,255,255,.9);border:1px solid rgba(31,129,196,.16);border-radius:var(--radius);box-shadow:0 12px 35px rgba(40,40,40,.08);padding:1.2rem}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}.grid{display:grid;gap:.85rem}.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))} label{display:grid;gap:.38rem;font-size:.9rem;font-weight:800;color:var(--dark-grey)}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);padding:.78rem .88rem;font:inherit;color:var(--charcoal);background:#fff;outline:none;transition:.18s}input:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(31,129,196,.12)}textarea{resize:vertical}.choice-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}.choice,.check-card,.mini-toggle{display:flex;align-items:center;gap:.6rem;border:1px solid var(--line);background:#fff;border-radius:18px;padding:.85rem;font-weight:900}.choice input,.check-card input,.mini-toggle input{width:auto;accent-color:var(--blue)}.choice:has(input:checked),.check-card:has(input:checked),.mini-toggle:has(input:checked){border-color:rgba(31,129,196,.55);background:linear-gradient(135deg,#fff,var(--soft))}.labour-card{background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(197,221,237,.25));border-color:rgba(31,129,196,.25)}
+    .rows{display:grid;gap:.72rem}.line-row{display:grid;grid-template-columns:1.35fr .72fr .72fr .58fr auto;gap:.65rem;align-items:end;background:#f8fbfd;border:1px solid #e1edf5;border-radius:18px;padding:.75rem}.print-row{grid-template-columns:1.1fr .9fr .65fr auto}.button-row{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1rem}button{border:0;border-radius:999px;padding:.82rem 1.1rem;font-weight:900;cursor:pointer;transition:.16s;letter-spacing:-.01em}button:hover{transform:translateY(-1px)}button:active{transform:translateY(0)}.primary{background:var(--blue);color:var(--off-white);box-shadow:0 10px 24px rgba(31,129,196,.28)}.secondary{background:var(--charcoal);color:var(--off-white)}.ghost{background:#e9f2f8;color:var(--charcoal)}.small{background:var(--light-blue);color:var(--charcoal);padding:.62rem .9rem}.remove{background:var(--danger-bg);color:var(--danger);padding:.7rem .82rem}.results-panel{position:sticky;top:1rem}.report{background:#fff;overflow:hidden}.report-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}.report-logo{width:128px;max-height:58px;object-fit:contain;background:#fff;border:1px solid #edf2f6;border-radius:14px;padding:.35rem}.hero-total{background:linear-gradient(135deg,var(--charcoal),#3a3a3a);color:var(--off-white);border-radius:22px;padding:1.15rem;margin:1rem 0}.hero-total span,.hero-total small{display:block;opacity:.76}.hero-total strong{display:block;font-size:2.55rem;letter-spacing:-.05em;margin:.15rem 0}.summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.summary-item{background:#f4f9fc;border:1px solid #e1edf5;border-radius:16px;padding:.75rem}.summary-item.hidden{display:none}.summary-item span{display:block;color:var(--muted);font-size:.78rem;font-weight:800}.summary-item strong{font-size:1.05rem}.price-list{display:grid;gap:.65rem;margin-top:.75rem}.price-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;border:1px solid #e1edf5;background:linear-gradient(135deg,#fff,#f4f9fc);border-radius:18px;padding:.82rem}.price-row span{display:block;color:var(--muted);font-size:.78rem;font-weight:800}.price-row strong{font-size:1.3rem;color:var(--blue)}.breakdown{display:grid;gap:.45rem;margin-top:.75rem}.breakdown-row{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dashed #dbe8f1;padding:.48rem 0}.breakdown-row span{color:var(--dark-grey)}.breakdown-row strong{white-space:nowrap}.footer-note{margin-top:1rem;padding-top:1rem;border-top:1px solid #e8f0f5;color:var(--muted);font-size:.82rem;line-height:1.45}.toast{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);background:var(--charcoal);color:var(--off-white);border-radius:999px;padding:.75rem 1rem;box-shadow:var(--shadow);z-index:30;font-weight:850}.subtle-box{border:1px solid #e1edf5;background:#f8fbfd;border-radius:18px;padding:.9rem;margin-top:.8rem}
+    @media(max-width:1040px){.site-header,.app-shell{grid-template-columns:1fr}.results-panel{position:static}.header-card{max-width:360px}.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:720px){.logo-strip{align-items:flex-start;flex-direction:column}.site-header{padding-top:1.4rem}.grid.two,.grid.three,.choice-grid,.summary-grid{grid-template-columns:1fr}.line-row,.print-row{grid-template-columns:1fr}.section-heading{align-items:flex-start;flex-direction:column}h1{font-size:2.5rem}.hero-total strong{font-size:2.15rem}}
+    @media print{body{background:#fff}.topbar,.site-header,.controls-panel,.no-print{display:none!important}.app-shell{display:block;padding:0}.results-panel{position:static}.report{box-shadow:none;border:0;border-radius:0}.report-logo{display:block}.footer-note{page-break-inside:avoid}.price-row,.summary-item,.breakdown-row{break-inside:avoid}.toast{display:none}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand-card">
-      <img class="brand-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo" />
+  <div class="topbar no-print">
+    <div class="logo-strip">
+      <div class="logo-wrap"><img class="brand-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo"></div>
+      <div id="jsStatus" class="status-pill bad">JavaScript not loaded yet</div>
     </div>
-    <div class="header-copy">
+  </div>
+
+  <header class="site-header no-print">
+    <div>
       <p class="eyebrow">UK product costing tool</p>
       <h1>Product Pricing Studio</h1>
-      <p class="intro">Cost 3D prints, engraved items, apparel, components, labour, VAT, postage and profit targets with a clean printable report.</p>
+      <p class="intro">Cost 3D prints, engraved items, apparel, components, labour, VAT, postage and profit targets with a neat exportable pricing report.</p>
     </div>
-    <div class="header-stat">
+    <div class="header-card">
       <span>Default electricity</span>
       <strong>24.67p/kWh</strong>
       <small>Editable per product</small>
@@ -27,234 +42,251 @@
   <main class="app-shell">
     <section class="controls-panel no-print" aria-label="Pricing inputs">
       <section class="card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 1</p>
-            <h2>Product details</h2>
-          </div>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">Step 1</p><h2>Product details</h2></div></div>
         <div class="grid two">
-          <label>Product name
-            <input id="productName" type="text" placeholder="e.g. Cork coaster set" />
-          </label>
-          <label>SKU / reference
-            <input id="productRef" type="text" placeholder="Optional" />
-          </label>
+          <label>Product name<input id="productName" type="text" placeholder="e.g. Cork coaster set"></label>
+          <label>SKU / reference<input id="productRef" type="text" placeholder="Optional"></label>
         </div>
-        <label>Notes
-          <textarea id="productNotes" rows="3" placeholder="Materials, customer request, colour, print profile, finish, etc."></textarea>
-        </label>
+        <label style="margin-top:.85rem">Notes<textarea id="productNotes" rows="3" placeholder="Materials, colour, finish, print profile, customer request..."></textarea></label>
       </section>
 
       <section class="card labour-card">
         <div class="section-heading">
-          <div>
-            <p class="eyebrow">Manual work</p>
-            <h2>Labour</h2>
-          </div>
-          <label class="mini-toggle"><input id="includeLabour" type="checkbox" checked /> Include labour</label>
+          <div><p class="eyebrow">Manual work</p><h2>Labour</h2></div>
+          <label class="mini-toggle"><input id="includeLabour" type="checkbox" checked> Include labour</label>
         </div>
-        <p class="helper">This is manual time only: sanding, painting, cleaning, assembly, packing, alignment, etc. Printer run time is handled separately.</p>
-        <div class="grid three" id="labourInputs">
-          <label>Hourly wage (£)
-            <input id="hourlyWage" type="number" min="0" step="0.01" value="15" />
-          </label>
-          <label>Manual labour time (minutes)
-            <input id="labourMinutes" type="number" min="0" step="1" value="20" />
-          </label>
-          <label>Labour notes
-            <input id="labourNotes" type="text" placeholder="Sanding, painting, assembly..." />
-          </label>
+        <p class="helper">Manual time only: sanding, painting, assembly, cleaning, packing, alignment, etc. Printer run time stays separate.</p>
+        <div id="labourInputs" class="grid three">
+          <label>Hourly wage (£)<input id="hourlyWage" type="number" min="0" step="0.01" value="15"></label>
+          <label>Manual labour time (minutes)<input id="labourMinutes" type="number" min="0" step="1" value="20"></label>
+          <label>Labour notes<input id="labourNotes" type="text" placeholder="Sanding, painting, assembly..."></label>
         </div>
       </section>
 
       <section class="card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 2</p>
-            <h2>What does this product use?</h2>
-          </div>
-        </div>
-        <div class="toggle-grid">
-          <label class="switch-row"><input id="toggle3d" type="checkbox" checked /> <span>3D printing</span></label>
-          <label class="switch-row"><input id="toggleExtras" type="checkbox" checked /> <span>Extras / components</span></label>
-          <label class="switch-row"><input id="toggleEngraving" type="checkbox" /> <span>Engraving</span></label>
-          <label class="switch-row"><input id="toggleApparel" type="checkbox" /> <span>Apparel</span></label>
+        <div class="section-heading"><div><p class="eyebrow">Step 2</p><h2>What does this product use?</h2></div></div>
+        <div class="choice-grid">
+          <label class="choice"><input id="toggle3d" type="checkbox" checked> 3D printing</label>
+          <label class="choice"><input id="toggleExtras" type="checkbox" checked> Extras/components</label>
+          <label class="choice"><input id="toggleEngraving" type="checkbox"> Engraving</label>
+          <label class="choice"><input id="toggleApparel" type="checkbox"> Apparel</label>
         </div>
       </section>
 
       <section id="section3d" class="card cost-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">3D print</p>
-            <h2>Filament & machine time</h2>
-          </div>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">3D print</p><h2>Filament & machine time</h2></div></div>
         <div class="grid three">
-          <label>Filament type
-            <input id="filamentType" type="text" placeholder="PLA, PETG, ABS..." />
-          </label>
-          <label>Roll weight (g)
-            <input id="rollWeight" type="number" min="0" step="1" value="1000" />
-          </label>
-          <label>Roll cost (£)
-            <input id="rollCost" type="number" min="0" step="0.01" value="17.99" />
-          </label>
-          <label>Filament used (g)
-            <input id="filamentUsed" type="number" min="0" step="0.1" value="35" />
-          </label>
-          <label>Print time (hours)
-            <input id="printHours" type="number" min="0" step="0.01" value="2.5" />
-          </label>
-          <label>Average printer watts
-            <input id="printerWatts" type="number" min="0" step="1" value="120" />
-          </label>
-          <label>Electricity (£/kWh)
-            <input id="electricityRate" type="number" min="0" step="0.0001" value="0.2467" />
-          </label>
-          <label>Waste / failure buffer (%)
-            <input id="wastePercent" type="number" min="0" step="0.1" value="10" />
-          </label>
+          <label>Filament type<input id="filamentType" type="text" placeholder="PLA, PETG, ABS..."></label>
+          <label>Roll weight (g)<input id="rollWeight" type="number" min="0" step="1" value="1000"></label>
+          <label>Roll cost (£)<input id="rollCost" type="number" min="0" step="0.01" value="17.99"></label>
+          <label>Filament used (g)<input id="filamentUsed" type="number" min="0" step="0.1" value="35"></label>
+          <label>Print time (hours)<input id="printHours" type="number" min="0" step="0.01" value="2.5"></label>
+          <label>Average printer watts<input id="printerWatts" type="number" min="0" step="1" value="120"></label>
+          <label>Electricity (£/kWh)<input id="electricityRate" type="number" min="0" step="0.0001" value="0.2467"></label>
+          <label>Waste / failure buffer (%)<input id="wastePercent" type="number" min="0" step="0.1" value="10"></label>
         </div>
       </section>
 
       <section id="sectionExtras" class="card cost-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Extras</p>
-            <h2>Components, packaging & bought-in parts</h2>
-          </div>
-          <button id="addExtra" class="small-button" type="button">+ Add extra</button>
-        </div>
-        <div id="extrasRows" class="rows-stack"></div>
+        <div class="section-heading"><div><p class="eyebrow">Extras</p><h2>Components, packaging & bought-in parts</h2></div><button id="addExtra" class="small" type="button">+ Add extra</button></div>
+        <div id="extrasRows" class="rows"></div>
       </section>
 
       <section id="sectionEngraving" class="card cost-section hidden">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Engraving</p>
-            <h2>xTool F2 / laser work</h2>
-          </div>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">Engraving</p><h2>xTool F2 / laser work</h2></div></div>
         <div class="grid three">
-          <label>Engraving name
-            <input id="engravingName" type="text" placeholder="Logo, pet tag, golf ball text..." />
-          </label>
-          <label>Engraving time (minutes)
-            <input id="engravingMinutes" type="number" min="0" step="1" value="8" />
-          </label>
-          <label>Setup & cleaning time (minutes)
-            <input id="engravingSetupMinutes" type="number" min="0" step="1" value="8" />
-          </label>
-          <label>Laser machine rate (£/hour)
-            <input id="laserRate" type="number" min="0" step="0.01" value="2" />
-          </label>
-          <label>Engraving waste/risk buffer (%)
-            <input id="engravingBuffer" type="number" min="0" step="0.1" value="10" />
-          </label>
+          <label>Engraving name<input id="engravingName" type="text" placeholder="Logo, pet tag, golf ball text..."></label>
+          <label>Engraving time (minutes)<input id="engravingMinutes" type="number" min="0" step="1" value="8"></label>
+          <label>Setup & cleaning time (minutes)<input id="engravingSetupMinutes" type="number" min="0" step="1" value="8"></label>
+          <label>Laser machine rate (£/hour)<input id="laserRate" type="number" min="0" step="0.01" value="2"></label>
+          <label>Engraving waste/risk buffer (%)<input id="engravingBuffer" type="number" min="0" step="0.1" value="10"></label>
         </div>
       </section>
 
       <section id="sectionApparel" class="card cost-section hidden">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Apparel</p>
-            <h2>Garment & print costs</h2>
-          </div>
-          <button id="addPrint" class="small-button" type="button">+ Add print</button>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">Apparel</p><h2>Garment & print costs</h2></div><button id="addPrint" class="small" type="button">+ Add print</button></div>
         <div class="grid three">
-          <label>Garment code
-            <input id="garmentCode" type="text" placeholder="JH001, AT002..." />
-          </label>
-          <label>Garment name
-            <input id="garmentName" type="text" placeholder="College Hoodie, Regular Tee..." />
-          </label>
-          <label>Garment cost (£)
-            <input id="garmentCost" type="number" min="0" step="0.01" value="0" />
-          </label>
+          <label>Garment code<input id="garmentCode" type="text" placeholder="JH001, AT002..."></label>
+          <label>Garment name<input id="garmentName" type="text" placeholder="College Hoodie, Regular Tee..."></label>
+          <label>Garment cost (£)<input id="garmentCost" type="number" min="0" step="0.01" value="0"></label>
         </div>
-        <div class="subheading-row">
-          <h3>Print applications</h3>
-          <p class="helper">Add each print location or method: front chest, back print, DTF transfer, DTV print, sleeve, etc.</p>
-        </div>
-        <div id="printRows" class="rows-stack"></div>
+        <div class="subtle-box"><h3>Print applications</h3><p class="helper">Add each print location or method: front chest, back print, DTF transfer, DTV print, sleeve, etc.</p><div id="printRows" class="rows"></div></div>
       </section>
 
       <section class="card">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Step 3</p>
-            <h2>VAT, postage & pricing</h2>
-          </div>
-        </div>
+        <div class="section-heading"><div><p class="eyebrow">Step 3</p><h2>VAT, postage & pricing</h2></div></div>
         <div class="grid three">
-          <label class="checkbox-label"><input id="includePostage" type="checkbox" /> Include postage in sale price</label>
-          <label>Rough postage (£)
-            <input id="postageCost" type="number" min="0" step="0.01" value="0" />
-          </label>
-          <label class="checkbox-label"><input id="includeVat" type="checkbox" /> Add VAT to suggested prices</label>
-          <label>VAT rate (%)
-            <input id="vatRate" type="number" min="0" step="0.1" value="20" />
-          </label>
-          <label>Payment/platform fee (%)
-            <input id="feePercent" type="number" min="0" step="0.1" value="0" />
-          </label>
-          <label>Fixed fee (£)
-            <input id="fixedFee" type="number" min="0" step="0.01" value="0" />
-          </label>
-          <label>Custom markup (%)
-            <input id="customMarkup" type="number" min="0" step="0.1" value="100" />
-          </label>
+          <label class="check-card"><input id="includePostage" type="checkbox"> Include postage in sale price</label>
+          <label>Rough postage (£)<input id="postageCost" type="number" min="0" step="0.01" value="0"></label>
+          <label class="check-card"><input id="includeVat" type="checkbox"> Add VAT to suggested prices</label>
+          <label>VAT rate (%)<input id="vatRate" type="number" min="0" step="0.1" value="20"></label>
+          <label>Payment/platform fee (%)<input id="feePercent" type="number" min="0" step="0.1" value="0"></label>
+          <label>Fixed fee (£)<input id="fixedFee" type="number" min="0" step="0.01" value="0"></label>
+          <label>Custom markup (%)<input id="customMarkup" type="number" min="0" step="0.1" value="100"></label>
         </div>
         <div class="button-row">
-          <button id="calculateBtn" type="button" class="primary-button">Calculate price</button>
-          <button id="printBtn" type="button" class="secondary-button">Export / save PDF</button>
-          <button id="resetBtn" type="button" class="ghost-button">Reset form</button>
+          <button id="calculateBtn" type="button" class="primary">Calculate price</button>
+          <button id="printBtn" type="button" class="secondary">Export / save PDF</button>
+          <button id="resetBtn" type="button" class="ghost">Reset form</button>
         </div>
       </section>
     </section>
 
     <aside class="results-panel" aria-label="Pricing report">
-      <section class="sticky-report" id="report">
-        <div class="report-top">
-          <div>
-            <p class="eyebrow">Pricing report</p>
-            <h2 id="reportTitle">Untitled product</h2>
-            <p id="reportRef" class="muted"></p>
-          </div>
-          <img class="report-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo" />
+      <section id="report" class="report">
+        <div class="report-head">
+          <div><p class="eyebrow">Pricing report</p><h2 id="reportTitle">Untitled product</h2><p id="reportRef" class="muted"></p></div>
+          <img class="report-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo">
         </div>
-
-        <div class="hero-total">
-          <span>Total cost to make</span>
-          <strong id="totalCost">£0.00</strong>
-          <small id="trueCostNote">Before optional postage, fees and VAT</small>
+        <div class="hero-total"><span>Total cost to make</span><strong id="totalCost">£0.00</strong><small id="trueCostNote">Before optional postage, fees and VAT.</small></div>
+        <div class="summary-grid" id="summaryGrid">
+          <div class="summary-item" data-summary="3d"><span>3D printing</span><strong id="sum3d">£0.00</strong></div>
+          <div class="summary-item" data-summary="extras"><span>Extras</span><strong id="sumExtras">£0.00</strong></div>
+          <div class="summary-item" data-summary="labour"><span>Labour</span><strong id="sumLabour">£0.00</strong></div>
+          <div class="summary-item" data-summary="engraving"><span>Engraving</span><strong id="sumEngraving">£0.00</strong></div>
+          <div class="summary-item" data-summary="apparel"><span>Apparel</span><strong id="sumApparel">£0.00</strong></div>
+          <div class="summary-item" data-summary="postage"><span>Included postage</span><strong id="sumPostage">£0.00</strong></div>
+          <div class="summary-item" data-summary="fees"><span>Fees estimate</span><strong id="sumFees">£0.00</strong></div>
+          <div class="summary-item" data-summary="vat"><span>VAT estimate</span><strong id="sumVat">£0.00</strong></div>
         </div>
-
-        <div class="summary-grid">
-          <div><span>3D printing</span><strong id="sum3d">£0.00</strong></div>
-          <div><span>Extras</span><strong id="sumExtras">£0.00</strong></div>
-          <div><span>Labour</span><strong id="sumLabour">£0.00</strong></div>
-          <div><span>Engraving</span><strong id="sumEngraving">£0.00</strong></div>
-          <div><span>Apparel</span><strong id="sumApparel">£0.00</strong></div>
-          <div><span>Postage in price</span><strong id="sumPostage">£0.00</strong></div>
-          <div><span>Fees estimate</span><strong id="sumFees">£0.00</strong></div>
-          <div><span>VAT added</span><strong id="sumVat">£0.00</strong></div>
-        </div>
-
-        <h3>Suggested sale prices</h3>
-        <div class="price-table" id="priceTable"></div>
-
-        <h3>Detailed breakdown</h3>
-        <div id="breakdown" class="breakdown"></div>
-
-        <div class="report-notes">
-          <h3>Notes</h3>
-          <p id="reportNotes">No notes added.</p>
-        </div>
+        <h3>Suggested sale prices</h3><div id="priceTable" class="price-list"></div>
+        <h3>Cost breakdown</h3><div id="breakdown" class="breakdown"></div>
+        <h3>Notes</h3><p id="reportNotes" class="muted">No notes added.</p>
+        <p class="footer-note">Generated by Idle Kami Product Pricing Studio. Values are estimates and should be checked against supplier costs, postage, VAT status, platform fees and the occasional 3D printer tantrum.</p>
       </section>
     </aside>
   </main>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script>
+    (function(){
+      'use strict';
+      const gbp = new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP'});
+      const money = v => gbp.format(Number.isFinite(v)?v:0);
+      const byId = id => document.getElementById(id);
+      const num = id => Number(byId(id)?.value || 0);
+      const text = id => (byId(id)?.value || '').trim();
+      const checked = id => Boolean(byId(id)?.checked);
+      const safeDivide = (a,b)=>b>0?a/b:0;
+      const esc = v => String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+      const inputIds = ['productName','productRef','productNotes','includeLabour','hourlyWage','labourMinutes','labourNotes','toggle3d','toggleExtras','toggleEngraving','toggleApparel','filamentType','rollWeight','rollCost','filamentUsed','printHours','printerWatts','electricityRate','wastePercent','engravingName','engravingMinutes','engravingSetupMinutes','laserRate','engravingBuffer','garmentCode','garmentName','garmentCost','includePostage','postageCost','includeVat','vatRate','feePercent','fixedFee','customMarkup'];
+
+      document.addEventListener('DOMContentLoaded', init);
+
+      function init(){
+        const status = byId('jsStatus');
+        if(status){ status.textContent = 'JavaScript loaded'; status.classList.remove('bad'); }
+        addExtraRow({name:'Packaging',packCost:0,packQty:1,qtyUsed:1}, false);
+        addPrintRow({name:'Front print',method:'',cost:0}, false);
+        inputIds.forEach(id=>{ const el=byId(id); if(el){ el.addEventListener('input', update); el.addEventListener('change', update); }});
+        byId('addExtra')?.addEventListener('click',()=>addExtraRow());
+        byId('addPrint')?.addEventListener('click',()=>addPrintRow());
+        byId('calculateBtn')?.addEventListener('click',()=>{ update(); showToast('Price calculated'); });
+        byId('printBtn')?.addEventListener('click',()=>{ update(); window.print(); });
+        byId('resetBtn')?.addEventListener('click', resetForm);
+        update();
+      }
+
+      function showToast(msg){ const t=byId('toast'); if(!t) return; t.textContent=msg; t.classList.remove('hidden'); clearTimeout(showToast.timer); showToast.timer=setTimeout(()=>t.classList.add('hidden'),1600); }
+      function toggleSection(id,show){ const el=byId(id); if(el) el.classList.toggle('hidden', !show); }
+
+      function addExtraRow(data={}, doUpdate=true){
+        const row=document.createElement('div'); row.className='line-row extra-row';
+        row.innerHTML = `<label>Item<input class="extra-name" type="text" value="${esc(data.name||'')}" placeholder="Cork insert, rubber feet..."></label><label>Pack cost (£)<input class="extra-pack-cost" type="number" min="0" step="0.01" value="${data.packCost ?? 0}"></label><label>Pack quantity<input class="extra-pack-qty" type="number" min="0" step="1" value="${data.packQty ?? 1}"></label><label>Used<input class="extra-used" type="number" min="0" step="0.01" value="${data.qtyUsed ?? 1}"></label><button type="button" class="remove">Remove</button>`;
+        byId('extrasRows')?.appendChild(row);
+        row.querySelectorAll('input').forEach(i=>{i.addEventListener('input',update);i.addEventListener('change',update);});
+        row.querySelector('.remove').addEventListener('click',()=>{row.remove();update();});
+        if(doUpdate) update();
+      }
+
+      function addPrintRow(data={}, doUpdate=true){
+        const row=document.createElement('div'); row.className='line-row print-row';
+        row.innerHTML = `<label>Print name / location<input class="print-name" type="text" value="${esc(data.name||'')}" placeholder="Front chest, back print..."></label><label>Print method<input class="print-method" type="text" value="${esc(data.method||'')}" placeholder="DTF, DTV, transfer..."></label><label>Print cost (£)<input class="print-cost" type="number" min="0" step="0.01" value="${data.cost ?? 0}"></label><button type="button" class="remove">Remove</button>`;
+        byId('printRows')?.appendChild(row);
+        row.querySelectorAll('input').forEach(i=>{i.addEventListener('input',update);i.addEventListener('change',update);});
+        row.querySelector('.remove').addEventListener('click',()=>{row.remove();update();});
+        if(doUpdate) update();
+      }
+
+      function resetForm(){
+        document.querySelectorAll('input[type="text"], textarea').forEach(i=>i.value='');
+        document.querySelectorAll('input[type="number"]').forEach(i=>i.value=i.defaultValue || 0);
+        byId('toggle3d').checked=true; byId('toggleExtras').checked=true; byId('toggleEngraving').checked=false; byId('toggleApparel').checked=false; byId('includeLabour').checked=true; byId('includePostage').checked=false; byId('includeVat').checked=false;
+        byId('extrasRows').innerHTML=''; byId('printRows').innerHTML='';
+        addExtraRow({name:'Packaging',packCost:0,packQty:1,qtyUsed:1}, false); addPrintRow({name:'Front print',method:'',cost:0}, false);
+        update(); showToast('Form reset');
+      }
+
+      function update(){
+        toggleSection('section3d', checked('toggle3d'));
+        toggleSection('sectionExtras', checked('toggleExtras'));
+        toggleSection('sectionEngraving', checked('toggleEngraving'));
+        toggleSection('sectionApparel', checked('toggleApparel'));
+        toggleSection('labourInputs', checked('includeLabour'));
+        render(calculate());
+      }
+
+      function calculate(){
+        const enabled3d=checked('toggle3d'), enabledExtras=checked('toggleExtras'), enabledLabour=checked('includeLabour'), enabledEngraving=checked('toggleEngraving'), enabledApparel=checked('toggleApparel');
+        const filamentPerGram=safeDivide(num('rollCost'),num('rollWeight'));
+        const filamentCost=enabled3d?filamentPerGram*num('filamentUsed'):0;
+        const electricityCost=enabled3d?(num('printerWatts')/1000)*num('printHours')*num('electricityRate'):0;
+        const printBeforeWaste=filamentCost+electricityCost;
+        const wasteCost=enabled3d?printBeforeWaste*(num('wastePercent')/100):0;
+        const printCost=printBeforeWaste+wasteCost;
+        const extras=enabledExtras?getExtraRows():[];
+        const extrasCost=extras.reduce((t,r)=>t+r.cost,0);
+        const labourCost=enabledLabour?num('hourlyWage')*(num('labourMinutes')/60):0;
+        const engravingMachine=enabledEngraving?(num('engravingMinutes')/60)*num('laserRate'):0;
+        const engravingLabour=enabledEngraving?(num('engravingSetupMinutes')/60)*num('hourlyWage'):0;
+        const engravingBeforeBuffer=engravingMachine+engravingLabour;
+        const engravingBufferCost=enabledEngraving?engravingBeforeBuffer*(num('engravingBuffer')/100):0;
+        const engravingCost=engravingBeforeBuffer+engravingBufferCost;
+        const prints=enabledApparel?getPrintRows():[];
+        const apparelPrintCost=prints.reduce((t,r)=>t+r.cost,0);
+        const apparelCost=enabledApparel?num('garmentCost')+apparelPrintCost:0;
+        const baseCost=printCost+extrasCost+labourCost+engravingCost+apparelCost;
+        const postage=checked('includePostage')?num('postageCost'):0;
+        const costBasis=baseCost+postage;
+        const markupRates=[30,50,70,num('customMarkup')].map(r=>Number.isFinite(r)?r:0).filter((r,i,a)=>a.findIndex(x=>x.toFixed(2)===r.toFixed(2))===i);
+        const prices=markupRates.map(markup=>{ const subtotal=costBasis*(1+markup/100); const feeEstimate=subtotal*(num('feePercent')/100)+num('fixedFee'); const priceBeforeVat=subtotal+feeEstimate; const vat=checked('includeVat')?priceBeforeVat*(num('vatRate')/100):0; const salePrice=priceBeforeVat+vat; return {markup,salePrice,feeEstimate,vat,profitBeforeVat:salePrice-vat-feeEstimate-costBasis}; });
+        const customPrice=prices[prices.length-1] || {feeEstimate:0,vat:0};
+        return {filamentPerGram,filamentCost,electricityCost,wasteCost,printCost,extras,extrasCost,labourCost,engravingMachine,engravingLabour,engravingBufferCost,engravingCost,prints,apparelCost,postage,baseCost,costBasis,feeEstimate:customPrice.feeEstimate,vat:customPrice.vat,prices};
+      }
+
+      function getExtraRows(){ return [...document.querySelectorAll('#extrasRows .extra-row')].map(row=>{ const name=row.querySelector('.extra-name').value.trim()||'Unnamed extra'; const packCost=Number(row.querySelector('.extra-pack-cost').value||0); const packQty=Number(row.querySelector('.extra-pack-qty').value||0); const qtyUsed=Number(row.querySelector('.extra-used').value||0); const unitCost=safeDivide(packCost,packQty); return {name,packCost,packQty,qtyUsed,unitCost,cost:unitCost*qtyUsed}; }); }
+      function getPrintRows(){ return [...document.querySelectorAll('#printRows .print-row')].map(row=>{ const name=row.querySelector('.print-name').value.trim()||'Unnamed print'; const method=row.querySelector('.print-method').value.trim(); const cost=Number(row.querySelector('.print-cost').value||0); return {name,method,cost}; }); }
+      function setText(id,value){ const el=byId(id); if(el) el.textContent=value; }
+      function setSummaryVisible(key, show){ const el=document.querySelector(`[data-summary="${key}"]`); if(el) el.classList.toggle('hidden', !show); }
+
+      function render(r){
+        setText('reportTitle', text('productName') || 'Untitled product');
+        setText('reportRef', text('productRef') ? `Reference: ${text('productRef')}` : '');
+        setText('reportNotes', text('productNotes') || 'No notes added.');
+        setText('totalCost', money(r.baseCost));
+        setText('trueCostNote', checked('includePostage') ? `Product cost is ${money(r.baseCost)}. Postage of ${money(r.postage)} is included when calculating sale prices.` : 'Before optional postage, fees and VAT.');
+        setText('sum3d', money(r.printCost)); setText('sumExtras', money(r.extrasCost)); setText('sumLabour', money(r.labourCost)); setText('sumEngraving', money(r.engravingCost)); setText('sumApparel', money(r.apparelCost)); setText('sumPostage', money(r.postage)); setText('sumFees', money(r.feeEstimate)); setText('sumVat', money(r.vat));
+        setSummaryVisible('3d', checked('toggle3d'));
+        setSummaryVisible('extras', checked('toggleExtras'));
+        setSummaryVisible('labour', checked('includeLabour'));
+        setSummaryVisible('engraving', checked('toggleEngraving'));
+        setSummaryVisible('apparel', checked('toggleApparel'));
+        setSummaryVisible('postage', checked('includePostage'));
+        setSummaryVisible('fees', r.feeEstimate > 0);
+        setSummaryVisible('vat', checked('includeVat'));
+
+        byId('priceTable').innerHTML = r.prices.map(row=>`<div class="price-row"><div><span>${esc(row.markup)}% markup</span><strong>${money(row.salePrice)}</strong><span>Profit before VAT: ${money(row.profitBeforeVat)}</span></div><strong>${money(row.salePrice)}</strong></div>`).join('');
+        const lines=[];
+        if(checked('toggle3d')){ lines.push(['Filament type', text('filamentType')||'Not specified']); lines.push(['Filament cost', `${money(r.filamentCost)} (${money(r.filamentPerGram)} per g)`]); lines.push(['Printer electricity', money(r.electricityCost)]); lines.push(['3D print waste buffer', money(r.wasteCost)]); }
+        if(checked('toggleExtras')) r.extras.forEach(e=>lines.push([`Extra: ${e.name}`, `${money(e.cost)} (${e.qtyUsed} × ${money(e.unitCost)})`]));
+        if(checked('includeLabour')) lines.push([`Manual labour${text('labourNotes')?`: ${text('labourNotes')}`:''}`, money(r.labourCost)]);
+        if(checked('toggleEngraving')){ lines.push([`Engraving machine time${text('engravingName')?`: ${text('engravingName')}`:''}`, money(r.engravingMachine)]); lines.push(['Engraving setup/cleaning labour', money(r.engravingLabour)]); lines.push(['Engraving buffer', money(r.engravingBufferCost)]); }
+        if(checked('toggleApparel')){ const garmentLabel=[text('garmentCode'),text('garmentName')].filter(Boolean).join(' — ') || 'Garment'; lines.push([garmentLabel, money(num('garmentCost'))]); r.prints.forEach(p=>lines.push([`Apparel print: ${p.method?`${p.name} (${p.method})`:p.name}`, money(p.cost)])); }
+        if(checked('includePostage')) lines.push(['Postage included in sale price calculations', money(r.postage)]);
+        byId('breakdown').innerHTML = lines.length ? lines.map(([l,v])=>`<div class="breakdown-row"><span>${esc(l)}</span><strong>${esc(v)}</strong></div>`).join('') : '<p class="muted">Turn on at least one costing section to see a breakdown.</p>';
+      }
+    })();
+  </script>
 </body>
 </html>
