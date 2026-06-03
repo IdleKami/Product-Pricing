@@ -1,3 +1,11 @@
-# Idle Kami Product Pricing Studio v6
+# Idle Kami Product Pricing Studio v7
 
-Single-file GitHub Pages pricing calculator. v6 cleans the PDF report layout and supports multiple apparel garment rows for bundles. Upload `index.html` and this README to the root of your repo.
+Static UK product pricing app for GitHub Pages.
+
+## v7 changes
+- Product type toggles now start unticked.
+- Manual labour now starts unticked.
+- PDF/export report is more compact and space-conscious.
+- Multiple garment rows remain supported for apparel bundles.
+
+Upload `index.html` to the root of your GitHub Pages repo.
