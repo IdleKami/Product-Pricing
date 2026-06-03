@@ -1,3 +1,5 @@
-# Idle Kami Product Pricing Studio v10
+# Idle Kami Design Product Pricing Calculator
 
-Single-file GitHub Pages app. PDF report now uses a black-and-white compact layout with sale prices in columns and 70% markup as the recommended sale price.
+Static GitHub Pages app for UK-focused product costing. Includes 3D printing, extras, engraving, apparel bundles, labour, VAT, postage and PDF export.
+
+Upload `index.html` and this `README.md` to the root of your GitHub repository and enable GitHub Pages.
