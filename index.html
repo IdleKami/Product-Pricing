@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Idle Kami Product Pricing App</title>
+  <title>Idle Kami Product Pricing Studio</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <header class="app-header">
-    <div>
-      <p class="eyebrow">Idle Kami Design</p>
-      <h1>Product Pricing Studio</h1>
-      <p class="intro">Price 3D prints, engraved items, apparel and mixed products with UK-focused costs, VAT, postage and profit targets.</p>
+  <header class="site-header">
+    <div class="brand-card">
+      <img class="brand-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo" />
     </div>
-    <div class="header-card">
-      <span>Current default electricity</span>
+    <div class="header-copy">
+      <p class="eyebrow">UK product costing tool</p>
+      <h1>Product Pricing Studio</h1>
+      <p class="intro">Cost 3D prints, engraved items, apparel, components, labour, VAT, postage and profit targets with a clean printable report.</p>
+    </div>
+    <div class="header-stat">
+      <span>Default electricity</span>
       <strong>24.67p/kWh</strong>
-      <small>Editable in the form</small>
+      <small>Editable per product</small>
     </div>
   </header>
 
   <main class="app-shell">
-    <section class="controls-panel no-print">
-      <div class="card product-card">
+    <section class="controls-panel no-print" aria-label="Pricing inputs">
+      <section class="card">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Step 1</p>
@@ -38,11 +42,33 @@
           </label>
         </div>
         <label>Notes
-          <textarea id="productNotes" rows="3" placeholder="Materials, customer request, print profile, colour, etc."></textarea>
+          <textarea id="productNotes" rows="3" placeholder="Materials, customer request, colour, print profile, finish, etc."></textarea>
         </label>
-      </div>
+      </section>
 
-      <div class="card">
+      <section class="card labour-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Manual work</p>
+            <h2>Labour</h2>
+          </div>
+          <label class="mini-toggle"><input id="includeLabour" type="checkbox" checked /> Include labour</label>
+        </div>
+        <p class="helper">This is manual time only: sanding, painting, cleaning, assembly, packing, alignment, etc. Printer run time is handled separately.</p>
+        <div class="grid three" id="labourInputs">
+          <label>Hourly wage (£)
+            <input id="hourlyWage" type="number" min="0" step="0.01" value="15" />
+          </label>
+          <label>Manual labour time (minutes)
+            <input id="labourMinutes" type="number" min="0" step="1" value="20" />
+          </label>
+          <label>Labour notes
+            <input id="labourNotes" type="text" placeholder="Sanding, painting, assembly..." />
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Step 2</p>
@@ -51,14 +77,13 @@
         </div>
         <div class="toggle-grid">
           <label class="switch-row"><input id="toggle3d" type="checkbox" checked /> <span>3D printing</span></label>
-          <label class="switch-row"><input id="toggleEngraving" type="checkbox" /> <span>Engraving</span></label>
           <label class="switch-row"><input id="toggleExtras" type="checkbox" checked /> <span>Extras / components</span></label>
+          <label class="switch-row"><input id="toggleEngraving" type="checkbox" /> <span>Engraving</span></label>
           <label class="switch-row"><input id="toggleApparel" type="checkbox" /> <span>Apparel</span></label>
-          <label class="switch-row"><input id="toggleLabour" type="checkbox" checked /> <span>Manual labour</span></label>
         </div>
-      </div>
+      </section>
 
-      <div id="section3d" class="card cost-section">
+      <section id="section3d" class="card cost-section">
         <div class="section-heading">
           <div>
             <p class="eyebrow">3D print</p>
@@ -87,13 +112,13 @@
           <label>Electricity (£/kWh)
             <input id="electricityRate" type="number" min="0" step="0.0001" value="0.2467" />
           </label>
-          <label>Waste / failed print buffer (%)
+          <label>Waste / failure buffer (%)
             <input id="wastePercent" type="number" min="0" step="0.1" value="10" />
           </label>
         </div>
-      </div>
+      </section>
 
-      <div id="sectionExtras" class="card cost-section">
+      <section id="sectionExtras" class="card cost-section">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Extras</p>
@@ -102,29 +127,9 @@
           <button id="addExtra" class="small-button" type="button">+ Add extra</button>
         </div>
         <div id="extrasRows" class="rows-stack"></div>
-      </div>
+      </section>
 
-      <div id="sectionLabour" class="card cost-section">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Labour</p>
-            <h2>Manual work only</h2>
-          </div>
-        </div>
-        <div class="grid three">
-          <label>Hourly wage (£)
-            <input id="hourlyWage" type="number" min="0" step="0.01" value="15" />
-          </label>
-          <label>Manual labour time (minutes)
-            <input id="labourMinutes" type="number" min="0" step="1" value="20" />
-          </label>
-          <label>Labour notes
-            <input id="labourNotes" type="text" placeholder="Sanding, painting, assembly..." />
-          </label>
-        </div>
-      </div>
-
-      <div id="sectionEngraving" class="card cost-section hidden">
+      <section id="sectionEngraving" class="card cost-section hidden">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Engraving</p>
@@ -148,9 +153,9 @@
             <input id="engravingBuffer" type="number" min="0" step="0.1" value="10" />
           </label>
         </div>
-      </div>
+      </section>
 
-      <div id="sectionApparel" class="card cost-section hidden">
+      <section id="sectionApparel" class="card cost-section hidden">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Apparel</p>
@@ -169,10 +174,14 @@
             <input id="garmentCost" type="number" min="0" step="0.01" value="0" />
           </label>
         </div>
+        <div class="subheading-row">
+          <h3>Print applications</h3>
+          <p class="helper">Add each print location or method: front chest, back print, DTF transfer, DTV print, sleeve, etc.</p>
+        </div>
         <div id="printRows" class="rows-stack"></div>
-      </div>
+      </section>
 
-      <div class="card">
+      <section class="card">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Step 3</p>
@@ -180,13 +189,13 @@
           </div>
         </div>
         <div class="grid three">
-          <label>VAT rate (%)
-            <input id="vatRate" type="number" min="0" step="0.1" value="20" />
-          </label>
-          <label class="checkbox-label"><input id="includeVat" type="checkbox" /> Add VAT to suggested prices</label>
-          <label class="checkbox-label"><input id="includePostage" type="checkbox" /> Include postage in price</label>
+          <label class="checkbox-label"><input id="includePostage" type="checkbox" /> Include postage in sale price</label>
           <label>Rough postage (£)
             <input id="postageCost" type="number" min="0" step="0.01" value="0" />
+          </label>
+          <label class="checkbox-label"><input id="includeVat" type="checkbox" /> Add VAT to suggested prices</label>
+          <label>VAT rate (%)
+            <input id="vatRate" type="number" min="0" step="0.1" value="20" />
           </label>
           <label>Payment/platform fee (%)
             <input id="feePercent" type="number" min="0" step="0.1" value="0" />
@@ -203,18 +212,18 @@
           <button id="printBtn" type="button" class="secondary-button">Export / save PDF</button>
           <button id="resetBtn" type="button" class="ghost-button">Reset form</button>
         </div>
-      </div>
+      </section>
     </section>
 
-    <aside class="results-panel">
-      <div class="sticky-report" id="report">
+    <aside class="results-panel" aria-label="Pricing report">
+      <section class="sticky-report" id="report">
         <div class="report-top">
           <div>
             <p class="eyebrow">Pricing report</p>
             <h2 id="reportTitle">Untitled product</h2>
             <p id="reportRef" class="muted"></p>
           </div>
-          <div class="brand-mark">IKD</div>
+          <img class="report-logo" src="https://idlekamidesign.co.uk/wp-content/uploads/Header-Logo.webp" alt="Idle Kami Design logo" />
         </div>
 
         <div class="hero-total">
@@ -244,10 +253,8 @@
           <h3>Notes</h3>
           <p id="reportNotes">No notes added.</p>
         </div>
-      </div>
+      </section>
     </aside>
   </main>
-
-  <script src="app.js"></script>
 </body>
 </html>
