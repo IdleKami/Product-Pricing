@@ -1,5 +1,3 @@
-# Idle Kami Product Pricing Studio v9
+# Idle Kami Product Pricing Studio v10
 
-Static single-file product pricing app for GitHub Pages.
-
-Changes in v9: compact 4px radius UI, removed redundant calculate button, black and white PDF report with clean filled boxes instead of coloured borders.
+Single-file GitHub Pages app. PDF report now uses a black-and-white compact layout with sale prices in columns and 70% markup as the recommended sale price.
